@@ -2,8 +2,11 @@ package com.coderslab.controller;
 
 import com.coderslab.dao.UsersDao;
 import com.coderslab.entity.Users;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import org.apache.struts2.ServletActionContext;
 
 public class UsersController extends ActionSupport{
     
@@ -90,6 +93,37 @@ public class UsersController extends ActionSupport{
         
         
         
+    }
+    
+    public String editUser(){
+        HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        Users u = usersDao.getUsers(id);
+        
+        users.setId(u.getId());
+        users.setName(u.getName());
+        users.setGender(u.getGender());
+        users.setCountry(u.getCountry());
+        users.setAboutYou(u.getAboutYou());
+        users.setMailingList(u.isMailingList());
+        System.out.println("============" + users.toString());
+        this.listUsers = usersDao.getAllUsers();
+        
+        
+        return SUCCESS;
+        
+    }
+    
+    public String deleteUser(){
+        HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        Users u = usersDao.getUsers(id);
+        
+        usersDao.deleteUsers(u);
+        
+        return SUCCESS;
     }
     
     

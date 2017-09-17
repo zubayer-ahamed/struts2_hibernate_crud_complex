@@ -18,7 +18,7 @@
 
         <div class="form_section" style="margin-bottom: 60px;">
             <s:form action="saveOrUpdate" method="post">
-
+                
                 <s:hidden name="users.id"/>
                 <s:textfield name="users.name" label="User Name"/>
                 <s:radio name="users.gender" label="Gender" list="{'Male','Female'}"/>
@@ -26,7 +26,7 @@
                 <s:textarea name="users.aboutYou" label="About You"/>
                 <s:checkbox name="users.mailingList" label="Would you like to join our mailing List"/>
                 <s:submit value="Save"/>
-
+                
             </s:form>
         </div>
 
@@ -54,8 +54,8 @@
                         <td>${row.country}</td>
                         <td>${row.aboutYou}</td>
                         <td>${row.mailingList}</td>
-                        <td><a href="">Edit</a></td>
-                        <td><a href="">Delete</a></td>
+                        <td><a href="editUser?id=${row.id}">Edit</a></td>
+                        <td><a href="deleteUser?id=${row.id}">Delete</a></td>
                     </tr>
                 </s:iterator>
             </tbody>

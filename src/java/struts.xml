@@ -19,6 +19,13 @@
             <result name="input" type="redirect">index</result>
         </action>    
         
+        <action name="editUser" method="editUser" class="com.coderslab.controller.UsersController">
+            <result name="success">/index.jsp</result>
+        </action>
+        
+        <action name="deleteUser" method="deleteUser" class="com.coderslab.controller.UsersController">
+            <result name="success" type="redirect">index</result>
+        </action>
             
     </package>
     
