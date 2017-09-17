@@ -1,0 +1,18 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- Author: cyclingbd007 -->
+ 
+<struts>
+    
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.action.extension" value="html"/>
+    
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="index">
+            <result name="success">/index.jsp</result>
+        </action>
+    </package>
+    
+</struts>
