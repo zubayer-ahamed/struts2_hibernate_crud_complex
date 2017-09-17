@@ -6,13 +6,20 @@
  
 <struts>
     
-    <constant name="struts.devMode" value="true"/>
-    <constant name="struts.action.extension" value="html"/>
+    <!--<constant name="struts.devMode" value="true"/>-->
+    <!--<constant name="struts.action.extension" value="html"/>-->
     
     <package name="default" extends="struts-default" namespace="/">
-        <action name="index">
+        <action name="index" class="com.coderslab.controller.UsersController">
             <result name="success">/index.jsp</result>
         </action>
+        
+        <action name="saveOrUpdate" method="saveOrUpdateUser" class="com.coderslab.controller.UsersController">
+            <result name="success" type="redirect">index</result>
+            <result name="input" type="redirect">index</result>
+        </action>    
+        
+            
     </package>
     
 </struts>
